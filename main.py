@@ -28,9 +28,10 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     new_shot = player.shoot()
-                    shots.add(new_shot)
-                    updatable.add(new_shot)
-                    drawable.add(new_shot)
+                    if new_shot is not None:
+                        shots.add(new_shot)
+                        updatable.add(new_shot)
+                        drawable.add(new_shot)
         screen.fill("black")
         updatable.update(dt)
         for asteroid in asteroids:
